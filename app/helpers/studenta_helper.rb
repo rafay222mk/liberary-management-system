@@ -1,0 +1,2 @@
+module StudentaHelper
+end

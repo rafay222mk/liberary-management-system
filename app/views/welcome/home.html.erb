@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Home Page</title>
+  </head>
+  <style>
+    .hep{
+      float: right;
+    }
+  </style>
+  <div style="float: inline-end; display; flex" >
+    <h3 style="text-align: center" ><%= button_to 'Sign Out' , destroy_user_session_path, method: :delete , data: { confirm: '
+                Dp you want to sing out ? '}, data: { turbo: false }  %></h3>
+  </div>
+  <div class="container">
+    <body>
+    <h1 style="color: yellow; text-align: center;" > Welcome <%= current_user.user_name %> </h1>
+      <div class="hep" >
+        <h3><%= link_to 'Edit Profile' , edit_user_registration_path , class: 'css_class', style: 'color:yellow;' %></h3>
+        <%  %>
+        <h3> <%= link_to 'Personal Information', user_path(current_user.id) , class: 'css_class', style: 'color:yellow;' %>  </h3>  
+      </div>
+      <% if current_user.role == 'admin' %>
+      <h3 ><%= link_to 'Books details' , books_path , class: 'css_class', style: 'color:yellow;' %></h3>
+        <h3> <%= link_to 'Students List' , users_path(show: 'student_list') , class: 'css_class', style: 'color:yellow;' %> </h3>
+        <h3> <%= link_to 'Librarian List' , users_path(show: 'librarian_list') , class: 'css_class', style: 'color:yellow;' %> </h3>
+        <% elsif current_user.role == 'libraian' %>
+        <h3 ><%= link_to 'Books List' , books_path , class: 'css_class', style: 'color:yellow;' %></h3>
+        <h3> <%= link_to 'Students List' , users_path(show: 'student_list') , class: 'css_class', style: 'color:yellow;' %> </h3>
+        <% else  %>
+        <h3 ><%= link_to 'Books details' , books_path , class: 'css_class', style: 'color:yellow;' %></h3>
+      <% end %>
+    </body>
+  </div>
+</html>
+
