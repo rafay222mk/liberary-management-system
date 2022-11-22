@@ -45,7 +45,7 @@
       </table>
       <hr>
       <% if current_user.role == 'student' %>
-        <h3 style="text-align: center;" > <%= link_to 'Borrow' , new_borrow_history_path(book_id: @book.id) , class: 'css_class', style: 'color:wheat; text-align: center; '   %> </h3>
+        <h3 style="text-align: center;" > <%= link_to 'Borrow' , new_borrow_history_path(book_id: @book.id) , class: 'css_class', style: 'color:yellow; text-align: center; '   %> </h3>
       <% end %>
     </div>
   </body>

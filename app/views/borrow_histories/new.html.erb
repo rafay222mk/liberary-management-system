@@ -19,16 +19,15 @@
       <div style=" display: flex; justify-content: center;" >
         <h3 style="color: wheat" >Are You Sure ..?</h3>
       </div>
-        
-        <% if borrow.user_id != current_user.id %> 
-          <%= form_with model: @borrow do |form| %>
+
+            <%= form_with model: @borrow do |form| %>
             <div class="csform" >
               <%= form.hidden_field :book_id, value: params[:book_id].to_i %>
               <%= form.hidden_field :user_id, value: current_user.id %>
-              
+  
               <%= form.hidden_field :due_date, value: Date.today+7.days %>
               <%= form.submit %>
-              <br><p style="text-align: center"><%= link_to 'Back' , books_path %></p>
+              <br><p style="text-align: center"><%= link_to 'Back' , books_path , class: 'css_class', style: 'color:yellow;' %></p>
             </div>
           <% end %>
          

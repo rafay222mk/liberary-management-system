@@ -55,7 +55,7 @@
       <% @student.borrow_histories.each do |b| %>
         <tr>
           <td><%= b.user.user_name %></td>
-          <td><%= b.book.title %></td>
+          <td><%= b.book&.title %></td>
           <td><%= b.due_date  %></td>
           <td> <%= b.fine %> </td>
           <td>
